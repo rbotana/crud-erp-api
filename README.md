@@ -1,40 +1,39 @@
+Crud developed in Laravel under the TDD concept.
 
-Suba os containers do projeto
+
+
+Containers up
 ```sh
 docker-compose up -d
 ```
 
 
-Crie o Arquivo .env
+Create .env file
 ```sh
 cp .env.example .env
 ```
 
-Acesse o container app
+Access container
 ```sh
 docker-compose exec app bash
 ```
 
 
-Instale as dependências do projeto
+Install dependencies
 ```sh
 composer install
 ```
 
-Gere a key do projeto Laravel
+Key generated
 ```sh
 php artisan key:generate
 ```
 
-OPCIONAL: Gere o banco SQLite (caso não use o banco MySQL)
-```sh
-touch database/database.sqlite
-```
 
-Rodar as migrations
+Migrations
 ```sh
 php artisan migrate
 ```
 
-Acesse o projeto
+Access the project
 [http://localhost:8000](http://localhost:8000)
