@@ -46,6 +46,7 @@ class ListCategoriesUseCase
         //         ];
         //     }, $categories->items()),
         //     total: $categories->total(),
+        //     current_page: $categories->currentPage(),
         //     last_page: $categories->lastPage(),
         //     first_page: $categories->firstPage(),
         //     per_page: $categories->perPage(),
