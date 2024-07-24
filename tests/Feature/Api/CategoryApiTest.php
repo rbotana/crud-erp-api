@@ -180,6 +180,36 @@ class CategoryApiTest extends TestCase
         ]);
     }
 
+    public function test_update_active()
+    {
+        $category = Category::factory()->create();
+
+        $data = [
+            'name' => 'Name Updated',
+            'is_active' => false,
+        ];
+
+        $response = $this->putJson("{$this->endpoint}/{$category->id}", $data);
+
+        $response->assertStatus(Response::HTTP_OK);
+        $response->assertJsonStructure([
+            'data' => [
+                'id',
+                'name',
+                'description',
+                'is_active',
+                'created_at',
+            ],
+        ]);
+        $this->assertDatabaseHas('categories', [
+            'name' => 'Name Updated',
+        ]);
+        $this->assertDatabaseHas('categories', [
+            'id' => $category->id,
+            'is_active' => false,
+        ]);
+    }
+
     public function test_not_found_delete()
     {
         $response = $this->deleteJson("{$this->endpoint}/fake_id");

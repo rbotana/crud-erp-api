@@ -73,6 +73,7 @@ class CategoryController extends Controller
             input: new CategoryUpdateInputDto(
                 id: $id,
                 name: $request->name,
+                isActive: (bool) $request->is_active ?? true,
             )
         );
 

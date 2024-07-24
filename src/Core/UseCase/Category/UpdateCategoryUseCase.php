@@ -22,6 +22,7 @@ class UpdateCategoryUseCase
         $category->update(
             name: $input->name,
             description: $input->description ?? $category->description,
+            isActive: $input->isActive ?? $category->is_active,
         );
 
         $categoryUpdated = $this->repository->update($category);
